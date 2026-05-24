@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Config
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 const BUNZ_CONTRACT = process.env.BUNZ_CONTRACT || '0x8d0CC6dcD796e9B14bd25BA2A21291aa3Af39fcB';
 const RPC_URL = process.env.RPC_URL || 'https://ethereum-sepolia-rpc.publicnode.com';
 const PRIVATE_KEY = process.env.ORACLE_PRIVATE_KEY;
