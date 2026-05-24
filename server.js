@@ -127,7 +127,7 @@ app.post('/process-consumption', async (req, res) => {
     // Verificar que el receiptHash no fue usado (en blockchain)
     const isUsed = await bunzContract.receiptUsed(receiptHash);
     if (isUsed) {
-      return res.status(400). { error: 'Receipt already used on blockchain' });
+      return res.status(400).json({ error: 'Receipt already used on blockchain' });
     }
     
     // Procesar minting en blockchain
