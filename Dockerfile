@@ -9,8 +9,8 @@ RUN npm install
 # Copy app
 COPY . .
 
-# Expose port
-EXPOSE 3001
+# Expose port (Railway usa 8080)
+EXPOSE 8080
 
 # Start
 CMD ["node", "server.js"]

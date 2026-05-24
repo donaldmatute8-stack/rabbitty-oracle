@@ -13,11 +13,13 @@ const BUNZ_CONTRACT = process.env.BUNZ_CONTRACT || '0x8d0CC6dcD796e9B14bd25BA2A2
 const RPC_URL = process.env.RPC_URL || 'https://ethereum-sepolia-rpc.publicnode.com';
 const PRIVATE_KEY = process.env.ORACLE_PRIVATE_KEY;
 
-// Redis para rate limiting
-const redis = new Redis({
-  host: process.env.REDIS_HOST || 'localhost',
-  port: process.env.REDIS_PORT || 6379
-});
+// Redis para rate limiting (usa REDIS_URL si está disponible)
+const redis = process.env.REDIS_URL 
+  ? new Redis(process.env.REDIS_URL)
+  : new Redis({
+      host: process.env.REDIS_HOST || 'localhost',
+      port: process.env.REDIS_PORT || 6379
+    });
 
 // Web3 setup
 const provider = new ethers.JsonRpcProvider(RPC_URL);
